@@ -35,7 +35,13 @@ public class AutoStart extends CordovaPlugin {
 
     public static final String PREFS = "autostart";
     public static final String ACTIVITY_CLASS_NAME = "class";
-    public static final String SERVICE_CLASS_NAME = "service";
+    public static final String SERVICE_CLASS_NAME = "eissoft.service";
+
+    @Override
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        enableAutoStart(cordova.getActivity().getLocalClassName(), false);
+        super.initialize(cordova, webView);
+    }
 
     /**
      * Executes the request.
